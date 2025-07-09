@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Property postings
+{% endblock %}
+
+{% block content%}
+  <h1 class="text-3xl font-bold underline">Property postings</h1>
+
+  <ul>
+    {% for posting in postings %}
+      <li><a href="details/{{posting.postingID}}">{{ posting.postingTitle }}</a>, {{ posting.city }},
+        {{posting.streetName}}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "master.html" %}
+
+{% block title %}
+    {{ posting.postingTitle }}
+{% endblock %}
+{% block content %}
+    <h1 class="text-3xl font-bold underline">{{ posting.postingTitle }}</h1>
+
+    <p>City: {{ posting.city }}</p>
+
+    <p>Back to main page: <a href="/">BACK BUTTON</a></p>
+{% endblock %}

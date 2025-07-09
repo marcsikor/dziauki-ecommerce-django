@@ -1,0 +1,22 @@
+[project]
+name = "dziauki-ecommerce-backend"
+version = "0.1.0"
+description = "backend for a personal ecommerce project in real estate"
+authors = [
+    {name = "marcsikor",email = "s223464@student.uek.krakow.pl"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "django (>=5.2.2,<6.0.0)",
+    "djhtml (>=3.0.8,<4.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+# this line is for poetry non-package mode (https://python-poetry.org/docs/basic-usage/#operating-modes)
+[tool.poetry]
+package-mode = false
