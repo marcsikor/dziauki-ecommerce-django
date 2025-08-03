@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from .models import PropertyPosting
+from .forms import InputForm
 
 def home(request):
     postings = PropertyPosting.objects.all().values()
@@ -19,3 +20,10 @@ def details(request, id):
         'posting': posting,
     }
     return HttpResponse(template.render(context, request))
+
+def new_posting(request):
+    context = {}
+    template = loader.get_template('property_form.html')
+    context['form']= InputForm()
+    return HttpResponse(template.render(context, request))
+    

@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Posting settings
+{% endblock %}
+
+{% block content%}
+    <form action= '' method = 'post' class = ''>
+      {% csrf_token %}
+      {% for field in form %}
+          <div class="border border-solid border-slate-300">
+              {{ field.label_tag }}
+              {{ field }}
+          </div>
+      {% endfor %}
+      <input type="submit" value="OK" />
+    </form>
+{% endblock %}
