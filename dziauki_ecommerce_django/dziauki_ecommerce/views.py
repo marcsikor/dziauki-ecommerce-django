@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import PropertyPosting
 from .forms import InputForm
@@ -24,6 +24,15 @@ def details(request, id):
 def new_posting(request):
     context = {}
     template = loader.get_template('property_form.html')
-    context['form']= InputForm()
-    return HttpResponse(template.render(context, request))
+    if request.method == 'POST':
+        form = InputForm(request.POST)
+        # print(form.is_valid())
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = InputForm()
     
+    context['form'] = form
+    return HttpResponse(template.render(context, request))
+        
