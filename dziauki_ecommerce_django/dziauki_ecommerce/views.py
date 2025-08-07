@@ -35,4 +35,20 @@ def new_posting(request):
     
     context['form'] = form
     return HttpResponse(template.render(context, request))
+
+def new_posting(request, id):
+    posting = PropertyPosting.objects.get(postingID = id)
+    context = {}
+    template = loader.get_template('property_form.html')
+    if request.method == 'POST':
+        form = InputForm(request.POST)
+        # print(form.is_valid())
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = InputForm(instance = posting)
+    
+    context['form'] = form
+    return HttpResponse(template.render(context, request))
         
