@@ -24,9 +24,9 @@ def details(request, id):
 def new_posting(request):
     context = {}
     template = loader.get_template('property_form.html')
+    
     if request.method == 'POST':
         form = InputForm(request.POST)
-        # print(form.is_valid())
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
@@ -36,13 +36,13 @@ def new_posting(request):
     context['form'] = form
     return HttpResponse(template.render(context, request))
 
-def new_posting(request, id):
-    posting = PropertyPosting.objects.get(postingID = id)
+def edit_posting(request, id):
     context = {}
     template = loader.get_template('property_form.html')
+    posting = PropertyPosting.objects.get(postingID = id)
+    
     if request.method == 'POST':
-        form = InputForm(request.POST)
-        # print(form.is_valid())
+        form = InputForm(request.POST, instance=posting)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
