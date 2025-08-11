@@ -9,6 +9,13 @@
   </head>
   <body>
 
+    {% block navbar %}
+    <nav>
+      <a href='/'>Homepage</a>
+      <a href='/new'>Add new posting</a>
+    </nav>
+    {%endblock %}
+
     {% block content %}
     {% endblock %}
 

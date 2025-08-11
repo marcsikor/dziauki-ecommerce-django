@@ -1,5 +1,7 @@
 {% extends "master.html" %}
 
+{% load static %}
+
 {% block title %}
   Property postings
 {% endblock %}
@@ -9,8 +11,8 @@
 
   <ul>
     {% for posting in postings %}
-      <li><a href="details/{{posting.postingID}}">{{ posting.postingTitle }}</a>, {{ posting.city }},
-        {{posting.streetName}}</li>
+      <li><a href="details/{{posting.postingID}}">{{ posting.postingTitle }}</a> {{ posting.city }}
+        {{posting.streetName}} <a href="details/{{posting.postingID}}"><img src="{% static 'tl.webp' %}" alt="Edit posting" style="width:30px;height:30px;"></a></li>
     {% endfor %}
   </ul>
 {% endblock %}
