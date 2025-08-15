@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import PropertyPosting
 from .forms import InputForm
+# import django.contrib.auth.views
 
 def home(request):
     postings = PropertyPosting.objects.all().values()
@@ -52,10 +53,10 @@ def edit_posting(request, id):
     context['form'] = form
     return HttpResponse(template.render(context, request))
         
-def login(request): # future login view
-    template = loader.get_template('index.html')
-    context =  {}
-    return HttpResponse(template.render(context, request))
+# def login(request): # future login view
+#     template = loader.get_template('index.html')
+#     context =  {}
+#     return HttpResponse(template.render(context, request))
 
 def signup(request): # future signup view
     template = loader.get_template('index.html')
