@@ -1,10 +1,10 @@
-project to-do list
-___
-- use tailwind cdn to play with it
-- make a decent listings, details and new posting form
-- create user account management with edit/no-edit priviledges
-- allow registration for users
-- deploy on azure (?)
-- integrate data in a separate app using pyspark & kaggle (?)
+### "Dziauki" - Real estate e-commerce project in django ###
 
-bedzie jako proof of concept
+Aim of this project is to provide a simple e-commerce app for real estate agents to display their offerings.
+
+Current to-do list:
+___
+- [x] Add tailwind CDN
+- [ ] Make a decent listings, details and new posting form
+- [ ] Create user account management with edit/no-edit priviledges
+- [ ] Allow registration for users
